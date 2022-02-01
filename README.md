@@ -40,6 +40,8 @@ LPG solves problems that are sequential.  This is useful for optimizing programs
 
 Shackleton comes pre-built with an LLVM optimizer optimizer (say that 5 times fast) baked into the framework. What that means is that one of the default object types (modules) available to the user is the LLVM_PASS module. Each instance of this module represents a single LLVM_PASS, while an Osaka List Structure (OSL) of this module represents a sequence of LLVM optimization passes that can be applied to a program. The framework iterates through its generations by creating new optimization sequences, applying them to inputted source code, and measuring their fitness by the amount of compute time. The optimization sequence that results in optimized code with the shortest time to run is considered the "best individual".
 
+A paper was published in January of 2022 assessing Shackleton's performance on this specific use case. You can find the paper, ["Optimizing LLVM Pass Sequences with Shackleton: A Linear Genetic Programming Framework" on arXiv](https://arxiv.org/abs/2201.13305). 
+
 When the -llvm_optimize flag is provided to the tool, it automatically takes you through a series of questions to input a series of source files to be tested against different optimization sequences.All source files used with this portion of the tool should be placed in src/files/llvm. The tool looks for files in relation to that directory, so if you input a file as "test.cpp" then the tool will look for that file in src/files/llvm/test.cpp. 
 
 --------
